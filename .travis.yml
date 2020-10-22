@@ -1,0 +1,27 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+node_js:
+  - '12'
+git:
+  depth: 3
+script:
+  - yarn test
+notifications:
+  slack: canal-token
+  email:
+    recipients:
+      - byron7cyeva@gmail.com
+      - mambolbrosti@gamil.com
+    on_success: always
+    on_failure: always
+deploy:
+  provider: heroku
+  skip-cleanup: true
+  keep-history: true
+  api_key: apiKey-de-heroku
+  app: platzi-store-backend-bc
+  on:
+    repo: byron7cueva/platzi-store-backend
